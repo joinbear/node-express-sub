@@ -1,0 +1,131 @@
+#%RAML 1.0
+title: Weixin
+version: v1
+baseUri: http://p.88880808.com:5000
+types:
+  TestType:
+    type: object
+    properties:
+      id: number
+      optional?: string
+      expanded:
+        type: object
+        properties:
+          count: number
+/weixin:
+  /status/:openid:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              properties:
+                code : number
+                msg : string
+              example: |
+                {
+                  "code" : "1",
+                  "msg" : "Hello World"
+                }
+  /user:
+    put:
+      body:
+        application/json:
+          properties:
+            openId : string
+            userName : string
+            phoneNum : string
+            validate : integer
+          example: |
+            {
+              "openId" : "xxx",
+              "userName" : "20110553",
+              "phoneNum" : "18583980441",
+              "validate" : 1
+            }
+      responses:
+        200:
+          body:
+            application/json:
+              properties:
+                code : number
+                msg : string
+              example: |
+                {
+                  "code" : "1",
+                  "msg" : "已绑定用户"
+                }
+  /codelist:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              properties:
+                code : number
+                msg : string
+                content : array
+              example: |
+                {
+                  "code" : "1",
+                  "msg" : "已绑定用户",
+                  "content":[{"code":"propertyHouse","title":"属性查盘","pictureUrl":"http://pic32.nipic.com/20130829/12906030_124355855000_2.png","articleUrl":"http://page.lianjia.com/subject/3657.html?preview=ec63043efd34adb3ca70e62940f6b231","description":"属性查盘"},{"code":"zoneHouse","title":"区域查盘","pictureUrl":"http://pic32.nipic.com/20130829/12906030_124355855000_2.png","articleUrl":"http://page.lianjia.com/subject/3115.html?preview=ec63043efd34adb3ca70e62940f6b231","description":"区域查盘"}]
+                }
+    post:
+      body:
+        application/json:
+          properties:
+            code : string
+            title : string
+            decription : string
+            pictureUrl : string
+            articleUrl : string
+          example: |
+            {
+              "code" : "xxxxxxxx",
+              "title" : "xxxxxxx",
+              "decription" : "xxxxxxx",
+              "pictureUrl" : "http://www.baidu.com",
+              "articleUrl" : "http://www.baidu.com"
+            }
+      responses:
+        200:
+          body:
+            application/json:
+              properties:
+                code : number
+                msg : string
+              example: |
+                {
+                  "code" : "1",
+                  "msg" : "创建成功"
+                }
+    /:code:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                properties:
+                  code : number
+                  msg : string
+                  content : array
+                example: |
+                  {
+                    "code" : "1",
+                    "msg" : "已绑定用户",
+                    "content":[{"code":"propertyHouse","title":"属性查盘","pictureUrl":"http://pic32.nipic.com/20130829/12906030_124355855000_2.png","articleUrl":"http://page.lianjia.com/subject/3657.html?preview=ec63043efd34adb3ca70e62940f6b231","description":"属性查盘"}]
+                  }
+      delete:
+        responses:
+          200:
+            body:
+              application/json:
+                properties:
+                  code : number
+                  msg : string
+                example: |
+                  {
+                    "code" : "1",
+                    "msg" : "删除成功"
+                  }

@@ -1,0 +1,35 @@
+{
+  "name": "homelink",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app/app.js",
+  "scripts": {
+    "start": "supervisor ./bin/www",
+    "dev": "DEBUG=express:* supervisor ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "co": "^4.6.0",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.2",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "fs-extra": "^0.30.0",
+    "handlebars": "^4.0.5",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "mysql": "^2.11.1",
+    "oracledb": "^1.10.0",
+    "raml2html": "^2.4.0",
+    "rekuire": "^0.1.9",
+    "request": "^2.73.0",
+    "require-directory": "^2.1.1",
+    "res.api": "^1.0.11",
+    "serve-favicon": "^2.3.0",
+    "superagent": "^2.2.0",
+    "webshot": "git+https://github.com/brenden/node-webshot.git"
+  },
+  "devDependencies": {
+  }
+}

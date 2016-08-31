@@ -1,0 +1,72 @@
+#%RAML 1.0
+title: User
+version: v1
+baseUri: http://p.88880808.com:5000
+types:
+  TestType:
+    type: object
+    properties:
+      id: number
+      optional?: string
+      expanded:
+        type: object
+        properties:
+          count: number
+/ekpuser:
+  /checkUser:
+    post:
+      body :
+        application/json:
+          type: object
+          properties:
+            username: string
+            phonenumber: string
+          example: |
+              {
+                "username": "20110553",
+                "phonenumber": "18583980441"
+              }
+      responses:
+        200:
+          body:
+            application/json:
+              type: object
+              properties:
+                code : number
+                msg : object
+              example: |
+                {
+                  "code" : "1",
+                  "msg" :
+                    {
+                      "outBinds":{"result1":"Y"}
+                    }
+                }
+    put:
+      body:
+        application/json:
+          type: object
+          properties:
+            username: string
+            phonenumber: string
+          example: |
+              {
+                "username": "20110553",
+                "phonenumber": "18583980441"
+              }
+      responses:
+        200:
+          body:
+            application/json:
+              type: object
+              properties:
+                code : number
+                msg : object
+              example: |
+                {
+                  "code" : "1",
+                  "msg" :
+                    {
+                      "outBinds":{"result1":"Y"}
+                    }
+                }

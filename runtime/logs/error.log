@@ -1,0 +1,37 @@
+
+[Wed Aug 31 2016 15:04:07 GMT+0800 (CST)] /mobile/trade
+ReferenceError: cres is not defined
+    at router.get (/Users/qiaoni/HomeLink/ApiService/app-mobile/apps/ecen/actions/trade.js:5:2)
+    at Layer.handle [as handle_request] (/Users/qiaoni/HomeLink/ApiService/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/qiaoni/HomeLink/ApiService/node_modules/express/lib/router/route.js:131:13)
+    at Route.dispatch (/Users/qiaoni/HomeLink/ApiService/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/qiaoni/HomeLink/ApiService/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/qiaoni/HomeLink/ApiService/node_modules/express/lib/router/index.js:277:22
+    at Function.process_params (/Users/qiaoni/HomeLink/ApiService/node_modules/express/lib/router/index.js:330:12)
+    at next (/Users/qiaoni/HomeLink/ApiService/node_modules/express/lib/router/index.js:271:10)
+    at Function.handle (/Users/qiaoni/HomeLink/ApiService/node_modules/express/lib/router/index.js:176:3)
+    at router (/Users/qiaoni/HomeLink/ApiService/node_modules/express/lib/router/index.js:46:12)
+[Wed Aug 31 2016 17:56:50 GMT+0800 (CST)] /website/ekp/print
+Error: Not Found
+    at /Users/qiaoni/HomeLink/service-mixture/config/error.js:23:16
+    at Layer.handle [as handle_request] (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:312:13)
+    at /Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:280:7
+    at Function.process_params (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:330:12)
+    at next (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:271:10)
+    at Immediate.<anonymous> (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/application.js:232:9)
+    at Immediate.<anonymous> (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:618:15)
+    at runCallback (timers.js:572:20)
+    at tryOnImmediate (timers.js:550:5)
+[Wed Aug 31 2016 17:57:33 GMT+0800 (CST)] /api/demo
+Error: Not Found
+    at /Users/qiaoni/HomeLink/service-mixture/config/error.js:23:16
+    at Layer.handle [as handle_request] (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:312:13)
+    at /Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:280:7
+    at Function.process_params (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:330:12)
+    at next (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:271:10)
+    at /Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/application.js:232:9
+    at /Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:618:15
+    at next (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/router/index.js:256:14)
+    at expressInit (/Users/qiaoni/HomeLink/service-mixture/node_modules/express/lib/middleware/init.js:33:5)

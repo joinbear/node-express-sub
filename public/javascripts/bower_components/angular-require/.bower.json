@@ -1,0 +1,32 @@
+{
+  "name": "angular-require",
+  "main": "angular-require.js",
+  "version": "1.1.0",
+  "homepage": "https://github.com/Treri/angular-require",
+  "authors": [
+    "Treri <treri.liu@gmail.com>"
+  ],
+  "description": "use require in angular painless",
+  "keywords": [
+    "angular",
+    "require"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.1.0",
+    "commit": "2d7d3a7bc4d498531cfcbab07ca0b7ec04c937b6"
+  },
+  "_source": "git://github.com/Treri/angular-require.git",
+  "_target": "~1.1.0",
+  "_originalSource": "angular-require",
+  "_direct": true
+}

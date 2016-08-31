@@ -1,0 +1,17 @@
+使用前必读：
+1、复制一份模板目录，将目录更名为自己项目的名称
+2、将模板中的头文件的作者信息注释更换为自己的信息
+3、将gulp中的压缩的目录更换为与自己项目相关的
+4、controller动态载入后，每个app的module只能与一个controller绑定
+例如：项目为trade
+gulp.task('js_simple', function () {
+    gulp.src([
+        'javascript/app/trade/*.js'
+    ])
+    .pipe(dynamic())
+    .pipe(concat('trade.min.js'))
+    .pipe(ngmin())
+    .pipe(uglify({mangle: false}))
+    .pipe(gulp.dest('javascript/app/trade'))
+});
+在命令行工具中启动，输入gulp js_simple即可

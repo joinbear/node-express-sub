@@ -1,0 +1,129 @@
+<style>
+body ,html {
+	margin: 0;
+	padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.print {
+	display: none;
+}
+.title {
+	font-size: 26px;
+	color: #333;
+	width: 60%;
+	line-height: 60px;
+}
+.content {
+	width: 100%;
+	text-align: center;
+}
+.form-group ,
+.form-inline {
+	width: 60%;
+}
+.form-inline,
+.title {
+	margin: 0 auto;
+}
+.form-group > input.form-control {
+	width: 100%;
+}
+.form-inline {
+	padding-bottom: 20px;
+}
+.loading {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #000;
+	opacity: .6;
+	filter:alpha(opacity=60);
+}
+.loading img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -32px;
+	margin-top: -32px;
+}
+</style>
+<!-- 标题 -->
+<h1 class="title">区域、商圈或小区名查询房价</h1>
+
+<!-- 查询表单 -->
+<form class="form-inline" id="searchForm">
+  <div class="form-group">
+      <input type="text" name="keyword" class="form-control" id="exampleInputAmount" placeholder="请输入区域、商圈或小区名查询房价" style="width:100%;" autocomplete="off" />
+  </div>
+  <button type="submit" class="btn btn-primary" id="searchPrice">查询房价</button>
+  <!-- 打印按钮 -->
+	<button type="button" href="javascript:;" class="btn btn-primary print" onclick="doPrint();">打印房价</button>
+</form>
+
+<!-- 打印内容 -->
+<!--startprint-->
+<div class="content"></div>
+<!--endprint-->
+<!-- 加载动画 -->
+<div class="loading">
+	<img src="/images/loading.gif" alt="">
+</div>
+<script type="text/javascript">
+	function doPrint() {
+		// 获得body的html
+		bdhtml=window.document.body.innerHTML;
+		// 打印开始的标志
+		sprnstr="<!--startprint-->";
+		// 打印结束的标志
+		eprnstr="<!--endprint-->";
+		// 从打印开始的位置截取到末尾
+		prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
+		// 从开始截取到打印结束的位置
+		prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+		// 替换html
+		window.document.body.innerHTML=prnhtml;
+		// 打印
+		// if ( (navigator.userAgent.indexOf('MSIE') >= 0) ) {
+		// 	// document.getElementById("WebBrowserPrint").ExecWB(7,1); 
+		// 	window.print();
+		// }else {
+		window.print();
+		// }
+		setTimeout(function(){
+			window.document.body.innerHTML=bdhtml;
+		},50);
+	};
+	$(function(){
+		// 查询房价
+		$("#searchPrice,#searchForm").on('submit',function(){
+			//显示遮罩层
+			// $(".loading").show('fast');
+			$(".loading").slideDown();
+			//请求房价图片
+			$.post('/website/print/price', {keyword : encodeURIComponent( $('input[name="keyword"]').val() )}, function(data, textStatus, xhr) {
+				if(data.msg == '1'){
+					$(".content").html('<img src="'+data.content+'" width="1000">');
+					$(".print").show('slow');
+				}else if(data.msg == '0') {
+					$(".print").hide('fast');
+					$(".content").html(data.content);
+				}else {
+					$(".print").hide('fast');
+					$(".content").html('没有查到相关的房价信息！');
+				}
+				//隐藏遮罩层
+				$(".loading").slideUp();
+			});
+			return false;
+		});
+	});
+</script>
